@@ -1,0 +1,44 @@
+﻿CREATE TABLE [dbo].[menu_items] (
+    [menu_item_id] INT             IDENTITY (1, 1) NOT NULL,
+    [name]         NVARCHAR (50)   NOT NULL,
+    [price]        DECIMAL (18, 2) NOT NULL,
+    [description]  TEXT            NOT NULL,
+    [image_url]    NVARCHAR (MAX)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([menu_item_id] ASC)
+);
+
+CREATE TABLE [dbo].[order_items] (
+    [order_item_id]  INT             IDENTITY (1, 1) NOT NULL,
+    [quantity]       INT             NOT NULL,
+    [price_at_order] DECIMAL (18, 2) NOT NULL,
+    [order_id]       INT             NOT NULL,
+    [menu_item_id]   INT             NOT NULL,
+    PRIMARY KEY CLUSTERED ([order_item_id] ASC),
+    CONSTRAINT [FK_OrderItems_MenuItems] FOREIGN KEY ([menu_item_id]) REFERENCES [dbo].[menu_items] ([menu_item_id]),
+    CONSTRAINT [FK_OrderItems_Orders] FOREIGN KEY ([order_id]) REFERENCES [dbo].[orders] ([order_id])
+);
+
+CREATE TABLE [dbo].[orders] (
+    [order_id]     INT             IDENTITY (1, 1) NOT NULL,
+    [order_date]   DATETIME        NOT NULL,
+    [total_amount] NUMERIC (18, 2) NOT NULL,
+    [status_id]    INT             NOT NULL,
+    [user_id]      INT             NOT NULL,
+    PRIMARY KEY CLUSTERED ([order_id] ASC),
+    CONSTRAINT [FK_Order_Status] FOREIGN KEY ([status_id]) REFERENCES [dbo].[status_] ([status_id]),
+    CONSTRAINT [FK_Order_Users] FOREIGN KEY ([user_id]) REFERENCES [dbo].[users] ([user_id])
+);
+
+CREATE TABLE [dbo].[status_] (
+    [status_id] INT           IDENTITY (1, 1) NOT NULL,
+    [name]      NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([status_id] ASC)
+);
+
+CREATE TABLE [dbo].[users] (
+    [user_id]  INT            IDENTITY (1, 1) NOT NULL,
+    [name]     NVARCHAR (50)  NOT NULL,
+    [email]    NVARCHAR (50)  NOT NULL,
+    [password] NVARCHAR (MAX) NOT NULL,
+    PRIMARY KEY CLUSTERED ([user_id] ASC)
+);
