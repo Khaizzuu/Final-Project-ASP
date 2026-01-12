@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login Page</title>
+</head>
 
 <div style="width: 300px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
     <h2>Login</h2>
