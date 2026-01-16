@@ -11,7 +11,18 @@ namespace Final_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["user_id"] != null)
+                {
+                    int orderId = (int)Session["order_id"];
+                    lblDisplayUserId.Text = orderId.ToString();
+                }
+                else
+                {
+                    lblDisplayUserId.Text = "User not logged in.";
+                }
+            }
         }
     }
 }
