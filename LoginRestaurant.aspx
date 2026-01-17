@@ -30,6 +30,6 @@
             <br /><br />
             <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
         </div>
-        </form>
+    </form>
 </body>
 </html>
