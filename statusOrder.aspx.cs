@@ -15,12 +15,13 @@ namespace Final_Project
             {
                 if (Session["user_id"] != null)
                 {
-                    int orderId = (int)Session["order_id"];
+                    int orderId = (int)Session["user_id"];
                     lblDisplayUserId.Text = orderId.ToString();
                 }
                 else
                 {
-                    lblDisplayUserId.Text = "User not logged in.";
+                    Response.Redirect("LoginRestaurant.aspx?ReturnUrl=" + Server.UrlEncode(Request.RawUrl), false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
             }
         }
