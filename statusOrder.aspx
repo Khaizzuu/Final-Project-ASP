@@ -23,7 +23,7 @@
                                     Order #<%# Eval("order_id") %>
                                 </h3>
                                 <span class="text-xs text-slate-500 uppercase tracking-wide">
-                                    Placed on <%# Eval("order_date", "{0:dd MMM yyyy}") %>
+                                    Placed on <%# Eval("order_date", "{0:dd MMM yyyy hh:mm:ss tt}") %>
                                 </span>
                             </div>
                     
