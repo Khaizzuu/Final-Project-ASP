@@ -23,7 +23,7 @@ namespace Final_Project
             {
                 int userId = (int)Session["user_id"];
                 DataTable dt = new DataTable();
-                dt.Columns.Add("id", typeof(int));
+                dt.Columns.Add("menu_item_id", typeof(int));
                 dt.Columns.Add("name", typeof(string));
                 dt.Columns.Add("price", typeof(decimal));
                 dt.Columns.Add("quantity", typeof(int));
@@ -62,9 +62,6 @@ namespace Final_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int[,] a = { {1, 1} };
-            Session["cart_items"] = a;
-            ;
             if (!IsPostBack) 
             {
                 if (Session["user_id"] != null)
@@ -109,11 +106,41 @@ namespace Final_Project
             DataTable cartItemsTable = retrieveCartItems();
             if (cartItemsTable != null)
             {
-                decimal grandTotal = 0;
-                foreach (DataRow row in cartItemsTable.Rows)
+                string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+                int orderId;
+                using (SqlConnection conn = new SqlConnection(connStr)) 
                 {
-                    grandTotal += (decimal)row["total"];
+                    decimal grandTotal = 0;
+                    foreach (DataRow row in cartItemsTable.Rows)
+                    {
+                        grandTotal += (decimal)row["total"];
+                    }
+                    conn.Open();
+                    string insertOrderQuery = $"INSERT INTO orders(order_date, total_amount, status_id, user_id) VALUES (SYSDATETIME(), @grandTotal, 1, @userID); SELECT SCOPE_IDENTITY();";
+                    using (SqlCommand cmd = new SqlCommand(insertOrderQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@grandTotal", grandTotal);
+                        cmd.Parameters.AddWithValue("@userID", (int)Session["user_id"]);
+                        object result = cmd.ExecuteScalar();
+                        orderId = Convert.ToInt32(result);
+                    }
+                    string insertOrderItemQuery = "INSERT INTO order_items(quantity, price_at_order, order_id, menu_item_id) VALUES (@quantity, @price_at_order, @orderID, @menuItemID)";
+                    using (SqlCommand cmd = new SqlCommand(insertOrderItemQuery, conn)) 
+                    {
+                        foreach (DataRow row in cartItemsTable.Rows)
+                        { 
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@quantity", (int)row["quantity"]);
+                            cmd.Parameters.AddWithValue("@price_at_order", (decimal)row["price"]);
+                            cmd.Parameters.AddWithValue("@orderID", orderId);
+                            cmd.Parameters.AddWithValue("@menuItemID", (int)row["menu_item_id"]);
+                            cmd.ExecuteNonQuery();
+                        }
+                        Session["cart_items"] = null;
+                    }
                 }
+                Response.Redirect($"Receipt.aspx?id={orderId}", false);
+                Context.ApplicationInstance.CompleteRequest();
             }
         }
     }
