@@ -131,7 +131,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="LoginRestaurant.aspx" />
-    <Content Include="RegisterUser.aspx" />
+    <Content Include="RegisterUserRestaurant.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -215,12 +215,12 @@
       <DependentUpon>LoginRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterUser.aspx.cs">
-      <DependentUpon>RegisterUser.aspx</DependentUpon>
+    <Compile Include="RegisterUserRestaurant.aspx.cs">
+      <DependentUpon>RegisterUserRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisterUser.aspx.designer.cs">
-      <DependentUpon>RegisterUser.aspx</DependentUpon>
+    <Compile Include="RegisterUserRestaurant.aspx.designer.cs">
+      <DependentUpon>RegisterUserRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
