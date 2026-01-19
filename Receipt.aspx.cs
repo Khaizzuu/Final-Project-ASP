@@ -70,5 +70,17 @@ namespace Final_Project
                 }
             }
         }
+
+        protected void menuBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Menu.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void orderHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("statusOrder.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }
