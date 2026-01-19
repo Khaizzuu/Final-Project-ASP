@@ -110,6 +110,7 @@ body {
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/ItemMenu.aspx">Menu</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/RegisterUser">Register</a></li>
                     </ul>
                 </div>
             </div>
