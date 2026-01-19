@@ -7,57 +7,39 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Final_Project
+namespace RestaurantProject
 {
 
 
-    public partial class Login
+    public partial class RegisterUser
     {
 
         /// <summary>
-        /// txtUser control.
+        /// txtRegUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUser;
+        protected global::System.Web.UI.WebControls.TextBox txtRegUser;
 
         /// <summary>
-        /// rfvUser control.
+        /// txtRegPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUser;
+        protected global::System.Web.UI.WebControls.TextBox txtRegPass;
 
         /// <summary>
-        /// txtPass control.
+        /// ButtonRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPass;
-
-        /// <summary>
-        /// rfvPass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPass;
-
-        /// <summary>
-        /// btnLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button ButtonRegister;
 
         /// <summary>
         /// lblMessage control.
