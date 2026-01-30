@@ -66,9 +66,7 @@
                                         </td>
                                         <td class="p-4 text-center">
                                             <span class="inline-block bg-gray-100 text-gray-600 px-3 py-1 rounded font-bold text-xs">
-                                                x<%# Eval("quantity") %>
-                                            </span>
-                                        </td>
+                                                x<%# Eval("quantity") %></span></td>
                                         <td class="p-4 text-right font-semibold text-gray-900">
                                             RM <%# Eval("price_at_order", "{0:N2}") %>
                                         </td>
@@ -83,14 +81,14 @@
             
                     <div class="flex gap-4 w-full md:w-auto">
                         <asp:Button ID="menuBtn" runat="server" Text="Start New Order" 
-                            CssClass="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow transition transform hover:-translate-y-0.5 cursor-pointer" />
+                            CssClass="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg shadow transition transform hover:-translate-y-0.5 cursor-pointer" OnClick="menuBtn_Click" />
                 
                         <asp:Button ID="orderHistoryBtn" runat="server" Text="Order History" 
-                            CssClass="bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-lg border border-gray-300 transition cursor-pointer" />
+                            CssClass="bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-lg border border-gray-300 transition cursor-pointer" OnClick="orderHistoryBtn_Click" />
                     </div>
 
                     <div class="text-right">
-                        <span class="text-gray-500 text-sm font-medium uppercase tracking-wide mr-4">Total Paid</span>
+                        <span class="text-gray-500 text-sm font-medium uppercase tracking-wide mr-4">Total Paid <span class="text-gray-500 text-sm font-medium uppercase tracking-wide mr-4">Total Paid</span>
                         <span class="text-4xl font-extrabold text-emerald-600">
                             RM <asp:Label ID="lblGrandTotal" runat="server" Text="0.00"></asp:Label>
                         </span>
