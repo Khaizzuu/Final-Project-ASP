@@ -14,7 +14,68 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+ <style>
+        :root {
+  --primary-maroon: #800000;
+  --secondary-burgundy: #550000;
+  --bg-warm-beige: #F5F5DC;
+  --text-dark: #2D2D2D;
+  --accent-gold: #D4AF37;
+  --card-white: #ffffff;
+}
 
+body {
+  background-color: var(--bg-warm-beige);
+  color: var(--text-dark);
+  font-family: 'Playfair Display', serif; /* Elegant serif for restaurant feel */
+}
+
+/* Navigation Header */
+.navbar {
+  background-color: var(--primary-maroon);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-gold);
+}
+
+/* Menu Item Cards */
+.menu-card {
+  background: var(--card-white);
+  border-left: 5px solid var(--primary-maroon);
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Action Buttons */
+.btn-order {
+  background-color: var(--primary-maroon);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background-color: var(--secondary-burgundy);
+  box-shadow: 0 0 10px var(--accent-gold);
+}
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -47,7 +108,7 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/ItemMenu.aspx">Menu</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/RegisterUser">Register</a></li>
                     </ul>
